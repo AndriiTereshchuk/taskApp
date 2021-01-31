@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { ApolloProvider } from '@apollo/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
+import apolloClient from './apollo/apollo-client';
+
+import FormContainer from './FormContainer';
+import TaskList from './TaskList';
+import { useTasksQuery } from "./apollo/autogenerate/hooks";
+
+const MainContainer = () => {
+    const { data, refetch: refetchTasks } = useTasksQuery();
+    const [task, setTask] = useState(null)
+    return(
+        <div className="App">
+            <FormContainer
+                updateTasks={refetchTasks}
+                task={task}
+            />
+            <TaskList
+                editTask={setTask}
+                tasks={data && data.tasks  || []}
+                updateTasks={refetchTasks}
+            />
+        </div>
+    )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ApolloProvider client={apolloClient}>
+          <MainContainer />
+      </ApolloProvider>
   );
 }
 

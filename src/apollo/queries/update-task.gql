@@ -1,0 +1,9 @@
+mutation UpdateTask($id: String! $title: String! $description: String!) {
+    updateTask(id: $id, title: $title, description: $description) {
+        id
+        title
+        description
+        created_at
+        updated_at
+    }
+}

@@ -1,0 +1,38 @@
+schema: src/apollo/schema.graphql
+overwrite: true
+
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+
+generates:
+  # Get schemas from server
+  src/apollo/autogenerate/schemas.tsx:
+    documents: 'src/apollo/queries/**/**.gql'
+    plugins:
+      - typescript
+  # Create operations based on queries
+  src/apollo/autogenerate/operations.tsx:
+    documents: 'src/apollo/queries/**/**.gql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./schemas
+    plugins:
+      - typescript-operations
+  # 1. Export GraphQL documents
+  # 2. React interface
+  src/apollo/autogenerate/hooks.tsx:
+    documents: 'src/apollo/queries/**/**.gql'
+    preset: import-types
+    presetConfig:
+      typesPath: ./operations
+    plugins:
+      - typescript-react-apollo
+    config:
+      # Optionals
+      withHOC: false
+      withComponent: false
+      withHooks: true
+
+
+

@@ -1,0 +1,27 @@
+
+type Taks {
+    id: String!
+    title: String!
+    description: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type Query {
+    task(id: String!): Taks!
+
+    tasks: [Taks!]!
+}
+
+type Mutation {
+    addTask(title: String!, description: String!): Taks!
+
+    updateTask(id: String!, title: String!, description: String!): Taks!
+
+    removeTask(id: String!): Taks!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
