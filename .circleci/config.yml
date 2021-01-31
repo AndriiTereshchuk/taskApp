@@ -7,3 +7,6 @@ jobs:
     steps:
       - checkout
       - run: node --version
+      - run:
+          name: Install dependencies
+          command: yarn --frozen-lockfile --cache-folder ~/.cache/yarn
