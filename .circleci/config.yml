@@ -18,8 +18,13 @@ jobs:
           command: yarn install
 
       - run:
+          name: Check ts
+          command: yarn tsc
+
+      - run:
           name: Run Tests
           command: yarn test
+
       - run:
           name: Build app
           command: yarn build
