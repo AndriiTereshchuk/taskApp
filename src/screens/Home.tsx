@@ -17,7 +17,7 @@ const Home = () => {
             />
             <TaskList
                 editTask={setTask}
-                tasks={data && data.tasks  || []}
+                tasks={(data && data.tasks) || []}
                 updateTasks={refetchTasks}
             />
         </div>
