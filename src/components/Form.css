@@ -1,0 +1,9 @@
+.Buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Form {
+    margin-bottom: 10px;
+}
