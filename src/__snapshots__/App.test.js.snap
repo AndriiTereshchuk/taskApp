@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<div
+  className="App"
+>
+  <form
+    className="Form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="form-label"
+        htmlFor="exampleForm.ControlInput1"
+      >
+        Title
+      </label>
+      <input
+        className="form-control"
+        id="exampleForm.ControlInput1"
+        onChange={[Function]}
+        placeholder="title"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="form-label"
+        htmlFor="exampleForm.ControlTextarea1"
+      >
+        Description
+      </label>
+      <textarea
+        className="form-control"
+        id="exampleForm.ControlTextarea1"
+        onChange={[Function]}
+        placeholder="description"
+        rows={3}
+        value=""
+      />
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
